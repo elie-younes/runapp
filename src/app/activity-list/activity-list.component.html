@@ -1,0 +1,57 @@
+
+<!-- Total Distance : {{totalDistance}}
+Total Activities: {{totalActivities}}
+First Date:{{firstDate | date:'longDate'}}
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Comments</th>
+      <th>Date</th>
+      <th>Distance</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr *ngFor='let a of logOfActivities'>
+      <td>{{a.name}}</td>
+      <td>{{a.comments}}</td>
+      <td>{{a.date}}</td>
+      <td>{{a.distance}}</td>
+    </tr>
+  </tbody>
+</table> -->
+<div class="row row-runs">
+  <h2 class="heading">My Runs</h2>
+  <hr />
+  <div class="summary">
+    You've logged
+    <p class="totals">{{ totalDistance }}</p>
+    total miles over
+    <p class="totals">{{ totalActivities }}</p>
+    runs since
+    <p class="totals">{{ firstDate | date: 'longDate'}}</p>
+  </div>
+  <hr />
+  <table class="table table-hover">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Comments</th>
+        <th>Date</th>
+        <th>Distance</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let a of logOfActivities">
+        <td>
+          <a [routerLink]="['/run', a.id]">  {{a.name}}  </a>
+        </td>
+      <td>{{a.comments}}</td>
+      <td>{{a.date}}</td>
+      <td>{{a.distance}}</td>
+      </tr>
+    </tbody>
+  </table>
+</div>
+
